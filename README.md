@@ -1,7 +1,3 @@
-Voici une version améliorée de votre README avec un thème plus convivial et des éléments visuels comme des emojis pour le rendre plus attrayant et professionnel :
-
----
-
 # 📂 Files Storage Backend
 
 ✨ **Bienvenue sur Files Storage Backend !**  
