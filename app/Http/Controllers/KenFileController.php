@@ -17,6 +17,9 @@ class KenFileController extends Controller
     public function index()
     {
         $files = KenFile::all(['id', 'path', 'created_at']);
+        foreach ($files as $file) {
+            $file->path = $file->url();
+        }
         return response()->json([
             'status' => 'success',
             'message' => 'List of files retrieved successfully.',
