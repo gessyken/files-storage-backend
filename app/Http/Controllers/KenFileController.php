@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\KenFile;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Log;
@@ -19,13 +20,16 @@ class KenFileController extends Controller
         $files = KenFile::all(['id', 'path', 'created_at']);
         foreach ($files as $file) {
             $file->path = $file->url();
+            // Formater la date en d-m-Y (H:i:s)
+            $file->created_at = Carbon::parse($file->created_at)->locale('fr_FR')->format('d-m-Y H:i:s');
         }
         return response()->json([
             'status' => 'success',
             'message' => 'List of files retrieved successfully.',
             'data' => $files,
         ], 200);
-    }
+    }    
+    
 
     /**
      * Store a newly uploaded file.
